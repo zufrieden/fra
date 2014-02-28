@@ -12,7 +12,7 @@ set :repo_url, 'git@github.com:zufrieden/fra.git'
 # This could be overridden in a stage config file
 set :branch, :master
 
-set :deploy_to, "/home/mfh/www/fra.zufrieden.io/current/web/#{fetch(:application)}"
+set :deploy_to, "/home/mfh/www/fra.zufrieden.io/#{fetch(:application)}"
 
 set :log_level, :info
 

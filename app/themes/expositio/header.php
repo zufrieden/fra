@@ -1,94 +1,57 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" dir="<?php bloginfo('text_direction'); ?>" xml:lang="<?php bloginfo('language'); ?>">
-	<head>
-		<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
-		<title>
-			<?php
-				global $page, $paged;
-				wp_title( '|', true, 'right' );
-				bloginfo( 'name' );
-				$site_description = get_bloginfo( 'description', 'display' );
-				if ( $site_description && ( is_home() || is_front_page() ) ) echo " | $site_description";
-				if ( $paged >= 2 || $page >= 2 ) echo ' | ' . sprintf( __( 'Page %s' ), max( $paged, $page ) );
-			?>
-		</title>
-		<link rel="profile" href="http://gmpg.org/xfn/11" />
-		<?php 
-		if ( get_option('free01_favicon_url') ) 
-			echo '<link rel="shortcut icon" href="' . get_option('free01_favicon_url') . '" type="image/x-icon" />'; 
-		else
-			echo '<link rel="shortcut icon" type="image/ico" href="'.get_bloginfo( 'template_url' ).'/favico.ico" />';
-		?>
-		
-		<link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ); ?>" type="text/css" media="all" />
-		<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-		<link rel="alternate" type="text/xml" title="RSS .92" href="<?php bloginfo('rss_url'); ?>"/>
-		<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="<?php bloginfo('atom_url'); ?>" />
+<?php
+/**
+ * The Header for our theme
+ *
+ * Displays all of the <head> section and everything up till <div id="main">
+ */
+?><!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie ie7" <?php language_attributes(); ?>>
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8" <?php language_attributes(); ?>>
+<![endif]-->
+<!--[if !(IE 7) | !(IE 8) ]><!-->
+<html <?php language_attributes(); ?>>
+<!--<![endif]-->
+<head>
+	<meta charset="<?php bloginfo('charset'); ?>">
+	<meta name="viewport" content="width=device-width">
+	<title><?php wp_title('•', true, 'right'); ?></title>
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>">
+	<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.png" />
+	<!--[if lt IE 9]>
+	<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js"></script>
+	<![endif]-->
+	<?php wp_head(); ?>
+</head>
 
-		<?php
-			wp_enqueue_script( 'jquery' );
-			
-			if ( is_singular() && get_option( 'thread_comments' ) ) wp_enqueue_script( 'comment-reply' );
-			wp_head();
-		?>
-		<?php
-			$numTmpFontSize	=	(int)(get_option('free01_font_size', 14));
-			if ($numTmpFontSize < 12) $numTmpFontSize = 12;
+<body <?php body_class(); ?>>
+	<div id="wrapper">
+		<div id="page" class="hfeed site">
+			<header id="masthead" class="site-header" role="banner">
+				<h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></h1>
+				<h1 class="menu-toggle">m</h1>
+				<nav id="primary-navigation" class="site-navigation primary-navigation" role="navigation">
+					<a class="screen-reader-text skip-link" href="#content"><?php _e('Skip to content', 'expositio'); ?></a>
+					<span id="navigation-close">&#10005;</span>
+					<?php wp_nav_menu(array('theme_location' => 'primary', 'menu_class' => 'nav-menu', 'container_id' => 'top-main-menu', 'fallback_cb' => false)); ?>
+					<?php wp_nav_menu(array('theme_location' => 'secondary', 'menu_class' => 'nav-menu', 'container_id' => 'top-right-menu', 'fallback_cb' => false)); ?>
+				</nav>
+				<footer id="colophon" class="site-footer" role="contentinfo">
+					<div class="site-info">
+						<?php printf(__('<a href="%s">%s</a> by <a href="%s">%s</a>', 'expositio'),
+							'http://wpshower.com/themes/expositio',
+							'Expositio',
+							'http://wpshower.com/',
+							'Wpshower'
+						);
+						?>
+					</div><!-- .site-info -->
+					<div class="copyright">&#169; 2014</div>
+				</footer><!-- #colophon -->
+			</header><!-- #masthead -->
+			<div id="header-helper"></div>
 
-			$strFontFamily	=	get_option('free01_font_family', 'Helvetica');
-			if ($strFontFamily == 'Droid Sans Mono')
-			{
-				echo '<link href="http://fonts.googleapis.com/css?family=Droid+Sans+Mono&amp;v1" rel="stylesheet" type="text/css" />';
-				$strFontFamily	= '"Droid Sans Mono", Sans-Serif';
-			}
-			if ($strFontFamily == 'Arvo')
-			{
-				echo '<link href="http://fonts.googleapis.com/css?family=Arvo&amp;v1" rel="stylesheet" type="text/css" />';
-				$strFontFamily	= '"Arvo", Sans-Serif';
-			}
-			if ($strFontFamily == 'Bentham')
-			{
-				echo '<link href="http://fonts.googleapis.com/css?family=Bentham&amp;v1" rel="stylesheet" type="text/css" />';
-				$strFontFamily	= '"Bentham", Sans-Serif';
-			}
-			if ($strFontFamily == 'Helvetica')
-			{
-				$strFontFamily	= 'Helvetica, Arial, Sans-Serif';
-			}
-			if ($strFontFamily == 'Georgia')
-			{
-				$strFontFamily	= 'Georgia, Times, Times New Roman, Serif';
-			}
-			if ($strFontFamily == 'Arial')
-			{
-				$strFontFamily	= 'Arial, Sans-Serif';
-			}
-
-			$strTextColor	=	get_option('free01_text_color', '#000');
-			$strLinkColor	=	get_option('free01_link_color', '#000');
-			$strBgColor	=	get_option('free01_bg_color', '#fff');
-		?>
-		<style media="all" type="text/css">
-			body, h1, h2, h3, h4, h5 { font-size: <?php echo $numTmpFontSize.'px' ?>;}
-			body { font-family: <?php echo $strFontFamily ?>;}
-			body { color: <?php echo $strTextColor ?>;}
-			a, a:hover { color: <?php echo $strLinkColor ?>;}
-			body, #wps-sidebar { background-color: <?php echo $strBgColor ?>;}
-		
-		</style>
-	</head>
-	<body <?php body_class(); ?>>
-		<!--[if gt IE 8]> <div id="wps-site-wrapper" class="wpscls-ie wpscls-ie9"> <![endif]-->
-		<!--[if IE 8]> <div id="wps-site-wrapper" class="wpscls-ie wpscls-ie8"> <![endif]-->
-		<!--[if IE 7]> <div id="wps-site-wrapper" class="wpscls-ie wpscls-ie7"> <![endif]-->
-		<!--[if IE 6]> <div id="wps-site-wrapper" class="wpscls-ie wpscls-ie6"> <![endif]-->
-		<!--[if !IE]><!--> <div id="wps-site-wrapper"> <!--<![endif]-->
-		
-			<!-- Inner of the site	-->
-  		<div id="wps-site-inner">
-				
-				<?php get_sidebar(); ?>
-				
-				<!-- Content of the site	-->
-				<div id="wps-content">
-				
+			<div id="main" class="site-main">

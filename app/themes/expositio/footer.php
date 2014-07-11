@@ -1,13 +1,21 @@
-				</div>
-				<!-- /Content of the site	-->
-			
-			</div>
-			<!-- /Inner of the site	-->
-			
-		</div>
-		<!-- /Wrapper of the site	-->
-		<?php wp_footer(); ?>
-		<?php echo ($strTmp	=	get_option('free01_google_analytics', '')) ? $strTmp : '' ?>
-	</body>
-</html>
+<?php
+/**
+ * The template for displaying the footer
+ *
+ * Contains footer content and the closing of the #main and #page div elements.
+ */
+?>
 
+			</div><!-- #main -->
+		</div><!-- #page -->
+	</div><!-- #wrapper -->
+
+	<span id="infinite-loader">
+		<span></span>
+		<span></span>
+		<span></span>
+	</span>
+
+	<?php wp_footer(); ?>
+</body>
+</html>

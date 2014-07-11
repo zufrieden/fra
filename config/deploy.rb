@@ -20,7 +20,7 @@ set :linked_files, %w{.env}
 set :linked_dirs, %w{app/uploads}
 
 namespace :deploy do
-
+  before :starting, 'composer:install_executable'
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do

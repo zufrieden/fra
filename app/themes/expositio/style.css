@@ -59,6 +59,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
  *
  * -----------------------------------------------------------------------------
  */
+
 * {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -106,13 +107,14 @@ html {
 	-webkit-font-smoothing: antialiased;
 }
 
+
 body,
 button,
 input,
 select,
 textarea {
-	color: #222223;
-	font-family: Lusitana, serif;
+	color: #666;
+    font-family: 'Muli', sans-serif;
 	font-size: 19px;
 	font-size: 1.9rem;
 	font-weight: 400;
@@ -126,13 +128,12 @@ body {
 }
 
 a {
-	color: #222223;
+	color: #666;
 	text-decoration: none;
 }
 
 a:hover {
-	color: #963cbd;
-	border-bottom: 1px solid #963cbd;
+	color: black;
 }
 
 a:focus,
@@ -202,7 +203,7 @@ address {
 }
 
 abbr[title] {
-	border-bottom: 1px dotted #222223;
+	border-bottom: 1px dotted #666;
 	cursor: help;
 }
 
@@ -478,7 +479,7 @@ td {
 }
 
 del {
-	color: #222223;
+	color: #666;
 }
 
 hr {
@@ -493,13 +494,13 @@ hr {
  * to achieve a better experience. See http://core.trac.wordpress.org/ticket/25898.
  */
 ::selection {
-	background: #963cbd;
+	background: black;
 	color: #fff;
 	text-shadow: none;
 }
 
 ::-moz-selection {
-	background: #963cbd;
+	background: black;
 	color: #fff;
 	text-shadow: none;
 }
@@ -518,9 +519,9 @@ hr {
 /* Input fields */
 input,
 textarea {
-	border: 1px solid #222223;
+	border: 1px solid #666;
 	border-radius: 2px;
-	color: #222223;
+	color: #666;
 	padding: 4px 10px;
 	padding: 0.4rem 1rem;
 	margin-bottom: 3px;
@@ -529,7 +530,7 @@ textarea {
 
 input:focus,
 textarea:focus {
-	border: 1px solid #963cbd;
+	border: 1px solid black;
 	outline: 0;
 }
 
@@ -539,10 +540,10 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-	background-color: #222223;
+	background-color: #666;
 	border: 0;
 	border-radius: 2px;
-	color: #963cbd;
+	color: black;
 	padding: 5px 20px;
 	padding: 0.5rem 2rem;
 	margin-bottom: 3px;
@@ -558,7 +559,7 @@ input[type="reset"]:hover,
 input[type="reset"]:focus,
 input[type="submit"]:hover,
 input[type="submit"]:focus {
-	background-color: #963cbd;
+	background-color: black;
 	color: #fff;
 }
 
@@ -567,27 +568,27 @@ button:active,
 input[type="button"]:active,
 input[type="reset"]:active,
 input[type="submit"]:active {
-	background-color: #963cbd;
+	background-color: black;
 	color: #fff;
 }
 
 /* Placeholder text color -- selectors need to be separate to work. */
 ::-webkit-input-placeholder {
-	color: #222223;
+	color: #666;
 }
 
 :-moz-placeholder {
-	color: #222223;
+	color: #666;
 }
 
 ::-moz-placeholder {
-	color: #222223;
+	color: #666;
 	/* Since FF19 lowers the opacity of the placeholder by default */
 	opacity: 1;
 }
 
 :-ms-input-placeholder {
-	color: #222223;
+	color: #666;
 }
 
 /* Responsive images. Fluid images for posts, comments, and widgets */
@@ -709,11 +710,11 @@ img.aligncenter,
 }
 
 .wp-caption {
-	color: #222223;
+	color: #666;
 }
 
 .wp-caption a {
-	color: #963cbd;
+	color: black;
 }
 
 .wp-caption-text {
@@ -912,7 +913,7 @@ img.aligncenter,
 	left: -50%;
 	width: 100%;
 	height: 100%;
-	background: #963cbd;
+	background: black;
 	border-radius: 50%;
 }
 
@@ -948,7 +949,8 @@ img.aligncenter,
 }
 
 .site-header {
-	background: #fff;
+	/*background: #fff;*/
+	background: rgba(255,255,255,0.8);
 }
 
 .site-title {
@@ -972,6 +974,11 @@ img.aligncenter,
  * 5.0 Navigation
  * -----------------------------------------------------------------------------
  */
+.site-navigation{
+	text-align: right;
+	margin-right: 50px;
+	padding-top: 50px;
+}
 .site-navigation ul {
 	list-style: none;
 	margin: 0;
@@ -1000,7 +1007,7 @@ img.aligncenter,
 	right: 20px;
 	right: 2rem;
 	margin: 0;
-	color: #222223;
+	color: #666;
 	font-family: expositio;
 	font-size: 30px;
 	font-size: 3rem;
@@ -1010,7 +1017,7 @@ img.aligncenter,
 }
 
 .menu-toggle:hover {
-	color: #963cbd;
+	color: black;
 }
 
 #navigation-close {
@@ -1019,8 +1026,8 @@ img.aligncenter,
 	z-index: 10000;
 	top: 10px;
 	top: 1rem;
-	right: 20px;
-	right: 2rem;
+	left: 20px;
+	left: 2rem;
 	font-size: 30px;
 	font-size: 3rem;
 	line-height: 30px;
@@ -1242,6 +1249,15 @@ body.page .entry-header,
 	padding: 0 2rem 4rem;
 	color: #999;
 }
+.site-info{
+	font-size:0.7em;
+	text-align: right;
+	padding-right: 60px;
+}
+.site-info h5{
+	line-height: 2rem;
+	margin: 2.8rem 0px 0 0;
+}
 
 /**
  * 9.0 Featured Content
@@ -1275,14 +1291,14 @@ body.page .entry-header,
 	.site {
 		height: 100%;
 		padding: 40px 20px 40px 250px;
-		padding: 4rem 2rem 4rem 25rem;
+		padding: 4rem 2rem 4rem 35rem;
 	}
 
 	.site-header {
 		position: fixed;
 		top: 0;
 		left: 0;
-		width: 250px;
+		width: 350px;
 		height: 100%;
 		padding: 40px 30px 0;
 		padding: 4rem 3rem 0;
@@ -1350,19 +1366,23 @@ body.page .entry-header,
 	body.single .hentry {
 		padding-bottom: 40px;
 		padding-bottom: 4rem;
-		max-width: 620px;
+		max-width: 300px;
 	}
 
 	body.page .hentry,
 	.page-content {
 		padding-bottom: 40px;
 		padding-bottom: 4rem;
-		max-width: 620px;
+		max-width: 300px;
 	}
 
 	.gallery-animated img {
 		cursor: pointer;
 	}
+}
+
+.site-title a:hover{
+	border-bottom-color: transparent;
 }
 
 @media (max-width: 950px) {
@@ -1396,7 +1416,7 @@ body.page .entry-header,
 		left: -84.375%;
 		width: 84.375%;
 		height: 100%;
-		background-color: #963cbd;
+		background-color: black;
 		padding: 10px 20px;
 		padding: 1rem 2rem;
 		overflow-y: auto;

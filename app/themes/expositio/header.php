@@ -31,7 +31,11 @@
 	<div id="wrapper">
 		<div id="page" class="hfeed site">
 			<header id="masthead" class="site-header" role="banner">
-				<h1 class="site-title"><a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></h1>
+				<h1 class="site-title">
+					<a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
+						<img src="<?php echo get_template_directory_uri(); ?>/images/logo_francesca_palazzi.svg" onerror="this.onerror=null; this.src='<?php echo get_template_directory_uri(); ?>/images/logo_francesca_palazzi.png'" alt="<?php bloginfo('name'); ?>" width="100%" />
+					</a>
+				</h1>
 				<h1 class="menu-toggle">m</h1>
 				<nav id="primary-navigation" class="site-navigation primary-navigation" role="navigation">
 					<a class="screen-reader-text skip-link" href="#content"><?php _e('Skip to content', 'expositio'); ?></a>
@@ -41,15 +45,9 @@
 				</nav>
 				<footer id="colophon" class="site-footer" role="contentinfo">
 					<div class="site-info">
-						<?php printf(__('<a href="%s">%s</a> by <a href="%s">%s</a>', 'expositio'),
-							'http://wpshower.com/themes/expositio',
-							'Expositio',
-							'http://wpshower.com/',
-							'Wpshower'
-						);
-						?>
+						<h5>+41 76 476 26 90</h5>
+						<a href="mailto:palazzi.francesca@gmail.com">palazzi.francesca@gmail.com</a>
 					</div><!-- .site-info -->
-					<div class="copyright">&#169; 2014</div>
 				</footer><!-- #colophon -->
 			</header><!-- #masthead -->
 			<div id="header-helper"></div>

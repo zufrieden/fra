@@ -94,8 +94,8 @@ function expositio_font_url() {
 	 * Translators: If there are characters in your language that are not supported
 	 * by Lusitana, translate this to 'off'. Do not translate into your own language.
 	 */
-	if ('off' !== _x('on', 'Lusitana font: on or off', 'expositio')) {
-		$font_url = add_query_arg('family', urlencode('Lusitana:400,700'), "//fonts.googleapis.com/css");
+	if ('off' !== _x('on', 'Muli font: on or off', 'expositio')) {
+		$font_url = add_query_arg('family', urlencode('Muli:300,400'), "//fonts.googleapis.com/css");
 	}
 
 	return $font_url;

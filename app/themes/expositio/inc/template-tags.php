@@ -132,7 +132,7 @@ function expositio_formatted_gallery() {
 		--><li class="gallery-item">
 			<?php echo expositio_image_tag($attachment) ?>
 		<?php if (trim($image->post_excerpt) != ''): ?>
-			<?php echo $image->post_excerpt; ?>
+			<small><?php echo $image->post_excerpt; ?></small>
 		<?php endif; ?>
 		</li><!--
 	--><?php endforeach; ?><!--
